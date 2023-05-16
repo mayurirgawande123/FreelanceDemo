@@ -146,12 +146,14 @@ function selectSeat(seat) {
         seatsRemain = 0;
         selectedSeats.length = 0;
       }
+      box.classList.add("disabled");
       return;
     }
     else {
       const box = rowSeats[i];
       box.classList.add("selected");
       selectedSeats.push(box.id); // Add the selected seat ID to the array
+      box.classList.add("disabled");
     }
     console.log(clickedIndex, 'ddd', seatQty, 'seatQty', seatsRemain, 'selectedSeats.length)', selectedSeats.length);
     if (i === (clickedIndex + seatQty - 1)) {
