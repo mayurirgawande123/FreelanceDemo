@@ -191,3 +191,7 @@ a.twodigit{
     pointer-events: auto;
     cursor: pointer; 
 }
+.box.disabled{
+opacity: 0.6;
+  pointer-events: none;
+}
