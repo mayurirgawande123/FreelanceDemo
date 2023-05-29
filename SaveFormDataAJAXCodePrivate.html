@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Save Web Form Data to Spreadsheets - Contact Form</title>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script>
+function SubForm (){
+    $.ajax({
+        url:"https://api.apispreadsheets.com/data/cqPcxFb7I7AUoQOa/",
+        type:'post',
+        data:$("#myForm").serializeArray(),
+        success: function(){
+          alert("Form Data Submitted :)")
+        },
+        error: function(){
+          alert("There was an error :(")
+        }
+    });
+}
+</script>
+</head>
+<body>
+  <form id="myForm">
+    <label>Name Of Student</label>
+    <br/>
+    <input name="student_name" />
+    <br/>
+    <label>Gender</label>
+    <br/>
+     <input type="radio" name="gender" value="Male">Male</input>
+    <input type="radio" name="gender" value="Female">Female</input>
+    <br/>
+    <label>Shoe Size</label>
+    <br/>
+    <input type="radio" id="shoe_size" name="shoe_size" value="1-5" /> 1-5<br/>
+    <input type="radio" id="shoe_size" name="shoe_size" value="5-10" /> 5+<br/>
+    <br/>
+    <label>Guardin Name</label>
+    <br/>
+  <input name="guardian_name" />
+    <br/>
+ <label>Mobile Number</label>
+    <br/>
+  <input name="mobile_number" />
+    <br/>
+<label>Email</label>
+    <br/>
+  <input name="email" />
+    <br/>
+<label>Date of birth</label>
+    <br/>
+   <input type="date" id="birthDate" name="birthDate">
+    <br/>
+<label>Choose day or week</label>
+    <br/>
+    <input type="radio" name="day" value="Day">Day</input>
+    <input type="radio" name="day" value="Week">Week</input>
+    <br/>
+<label>Payment</label>
+    <br/>
+  <input name="payment" />
+    <br/>
+    <br/>
+  </form>
+  <button onclick="SubForm()">Submit</button>
+</body>
+</html>
