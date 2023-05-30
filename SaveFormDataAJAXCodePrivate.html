@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Save Web Form Data to Spreadsheets - Contact Form</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="./style.css">
-<script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
-<script>
-function SubForm (){
-    $.ajax({
-        url:"https://api.apispreadsheets.com/data/cqPcxFb7I7AUoQOa/",
-        type:'post',
-        data:$("#myForm").serializeArray(),
-        success: function(){
+  <title>Save Web Form Data to Spreadsheets - Contact Form</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <script>
+    function setValue() {
+      document.getElementById('birthDate').valueAsDate = new Date();
+    }
+
+    function SubForm() {
+      $.ajax({
+        url:"https://api.apispreadsheets.com/data/9FNddmoVSW6ZDDyn/",
+        type: 'post',
+        data: $("#myForm").serializeArray(),
+        success: function () {
           alert("Form Data Submitted :)")
         },
-        error: function(){
+        error: function () {
           alert("There was an error :(")
         }
-    });
-}
-</script>
+      });
+    }
+  </script>
 </head>
-<body>
+
+<body onload="setValue()">
   <div class="container">
     <header class="header">
       <h1 id="title" class="text-center">Form</h1>
@@ -34,13 +38,14 @@ function SubForm (){
         Fill the below details
       </p>
     </header>
-    <div class="form-wrap">	
-      <form id="my-form" onsubmit="SubForm()">
+    <div class="form-wrap">
+      <form id="myForm" onsubmit="SubForm()">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
               <label id="name-label" for="student_name">Student Name</label>
-              <input type="text" name="student_name" id="name" placeholder="Enter your name" class="form-control" required>
+              <input type="text" name="student_name" id="name" placeholder="Enter your name" class="form-control"
+                required>
             </div>
           </div>
           <div class="col-md-6">
@@ -63,30 +68,37 @@ function SubForm (){
             </div>
           </div>
         </div>
-        
+
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
               <label id="number-label" for="shoe_size">Shoe Size</label>
-              <input type="text" name="shoe_size" id="shoe_size" class="form-control" placeholder="Shoe Size" >
+              <select class="form-select" name="shoe_size" aria-label="Default select example">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label id="guardian-label" for="guardian_name">Guardian Name</label>
-              <input type="text" name="guardian_name" id="guardian_name" placeholder="Enter guardian name" class="form-control" required>
+              <input type="text" name="guardian_name" id="guardian_name" placeholder="Enter guardian name"
+                class="form-control" required>
             </div>
           </div>
         </div>
-        
+
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
               <label id="mobile_number" for="mobile_number">Mobile Number</label>
-              <input type="text" name="mobile_number" id="mobile_number" placeholder="Enter mobile number" class="form-control" required>
+              <input type="tel" name="mobile_number" id="mobile_number" placeholder="Enter mobile number"
+                class="form-control" required>
             </div>
           </div>
-  
+
           <div class="col-md-6">
             <div class="form-group">
               <label id="email-label" for="email">Email</label>
@@ -98,11 +110,11 @@ function SubForm (){
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label id="birthDate" for="birthDate">Date of Birth</label>
+              <label for="birthDate">Date of Birth</label>
               <input type="date" name="birthDate" id="birthDate" placeholder="Birth Date" class="form-control" required>
             </div>
           </div>
-  
+
           <div class="col-md-6">
             <div class="col-md-6">
               <div class="form-group">
@@ -123,68 +135,38 @@ function SubForm (){
             </div>
           </div>
         </div>
-  
-  
+
+
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
               <label>Payment</label>
-              <input type="text" name="payment" id="payment" placeholder="Enter the status" class="form-control" required>
+              <input type="text" name="payment" id="payment" placeholder="Enter the status" class="form-control"
+                required>
             </div>
           </div>
         </div>
-        
+        <div class="form-check d-flex justify-content-center mb-5">
+          <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" required/>
+          <label class="form-check-label" for="form2Example3">
+            I agree all statements in <a href="#!">Terms and conditions</a>
+          </label>
+          <br />
+          Client / guardian signature :
+          <br />
+          Date
+        </div>
+
         <div class="row">
           <div class="col-md-4">
             <button type="submit" id="submit" class="btn btn-primary btn-block">Submit</button>
           </div>
         </div>
-  
+
       </form>
-    </div>	
+    </div>
   </div>
-  <!-- <form id="myForm">
-    <label>Name Of Student</label>
-    <br/>
-    <input name="student_name" />
-    <br/>
-    <label>Gender</label>
-    <br/>
-     <input type="radio" name="gender" value="Male">Male</input>
-    <input type="radio" name="gender" value="Female">Female</input>
-    <br/>
-    <label>Shoe Size</label>
-    <br/>
-    <input type="radio" id="shoe_size" name="shoe_size" value="1-5" /> 1-5<br/>
-    <input type="radio" id="shoe_size" name="shoe_size" value="5-10" /> 5+<br/>
-    <br/>
-    <label>Guardin Name</label>
-    <br/>
-  <input name="guardian_name" />
-    <br/>
- <label>Mobile Number</label>
-    <br/>
-  <input name="mobile_number" />
-    <br/>
-<label>Email</label>
-    <br/>
-  <input name="email" />
-    <br/>
-<label>Date of birth</label>
-    <br/>
-   <input type="date" id="birthDate" name="birthDate">
-    <br/>
-<label>Choose day or week</label>
-    <br/>
-    <input type="radio" name="day" value="Day">Day</input>
-    <input type="radio" name="day" value="Week">Week</input>
-    <br/>
-<label>Payment</label>
-    <br/>
-  <input name="payment" />
-    <br/>
-    <br/>
-  </form> -->
-  <!-- <button onclick="SubForm()">Submit</button> -->
+  
 </body>
+
 </html>
