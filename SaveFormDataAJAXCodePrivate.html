@@ -2,6 +2,10 @@
 <html>
 <head>
 <title>Save Web Form Data to Spreadsheets - Contact Form</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="./style.css">
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -23,7 +27,123 @@ function SubForm (){
 </script>
 </head>
 <body>
-  <form id="myForm">
+  <div class="container">
+    <header class="header">
+      <h1 id="title" class="text-center">Form</h1>
+      <p id="description" class="text-center">
+        Fill the below details
+      </p>
+    </header>
+    <div class="form-wrap">	
+      <form id="my-form" onsubmit="SubForm()">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label id="name-label" for="student_name">Student Name</label>
+              <input type="text" name="student_name" id="name" placeholder="Enter your name" class="form-control" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Gender</label>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="male" value="Male" name="gender" class="custom-control-input" checked="">
+                  <label class="custom-control-label" for="male">Male</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="female" value="Female" name="gender" class="custom-control-input">
+                  <label class="custom-control-label" for="female">Female</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="other" value="Other" name="gender" class="custom-control-input">
+                  <label class="custom-control-label" for="other">Other</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label id="number-label" for="shoe_size">Shoe Size</label>
+              <input type="text" name="shoe_size" id="shoe_size" class="form-control" placeholder="Shoe Size" >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label id="guardian-label" for="guardian_name">Guardian Name</label>
+              <input type="text" name="guardian_name" id="guardian_name" placeholder="Enter guardian name" class="form-control" required>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label id="mobile_number" for="mobile_number">Mobile Number</label>
+              <input type="text" name="mobile_number" id="mobile_number" placeholder="Enter mobile number" class="form-control" required>
+            </div>
+          </div>
+  
+          <div class="col-md-6">
+            <div class="form-group">
+              <label id="email-label" for="email">Email</label>
+              <input type="email" name="email" id="email" placeholder="Enter your email" class="form-control" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label id="birthDate" for="birthDate">Date of Birth</label>
+              <input type="date" name="birthDate" id="birthDate" placeholder="Birth Date" class="form-control" required>
+            </div>
+          </div>
+  
+          <div class="col-md-6">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Choose Day or week or month</label>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="day" value="Day" name="paymentType" class="custom-control-input" checked="">
+                  <label class="custom-control-label" for="day">Day</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="week" value="Week" name="paymentType" class="custom-control-input">
+                  <label class="custom-control-label" for="week">Week</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="month" value="Month" name="paymentType" class="custom-control-input">
+                  <label class="custom-control-label" for="month">Month</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Payment</label>
+              <input type="text" name="payment" id="payment" placeholder="Enter the status" class="form-control" required>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-4">
+            <button type="submit" id="submit" class="btn btn-primary btn-block">Submit</button>
+          </div>
+        </div>
+  
+      </form>
+    </div>	
+  </div>
+  <!-- <form id="myForm">
     <label>Name Of Student</label>
     <br/>
     <input name="student_name" />
@@ -64,7 +184,7 @@ function SubForm (){
   <input name="payment" />
     <br/>
     <br/>
-  </form>
-  <button onclick="SubForm()">Submit</button>
+  </form> -->
+  <!-- <button onclick="SubForm()">Submit</button> -->
 </body>
 </html>
