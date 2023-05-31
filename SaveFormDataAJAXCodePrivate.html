@@ -13,20 +13,6 @@
     function setValue() {
       document.getElementById('birthDate').valueAsDate = new Date();
     }
-
-    function SubForm() {
-      $.ajax({
-        url:"https://api.apispreadsheets.com/data/9FNddmoVSW6ZDDyn/",
-        type: 'post',
-        data: $("#myForm").serializeArray(),
-        success: function () {
-          alert("Form Data Submitted :)")
-        },
-        error: function () {
-          alert("There was an error :(")
-        }
-      });
-    }
   </script>
 </head>
 
@@ -39,7 +25,7 @@
       </p>
     </header>
     <div class="form-wrap">
-      <form id="myForm" onsubmit="SubForm()">
+      <form id="myForm" action="https://script.google.com/macros/s/AKfycbwUW5zsGImDESmsRZZl4JNJw4UNe8IGzBIqTPL3vF7QPWPoYmAXRpztBoVHZQDh6v6SsA/exec" method="post">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -120,15 +106,15 @@
               <div class="form-group">
                 <label>Choose Day or week or month</label>
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="day" value="Day" name="paymentType" class="custom-control-input" checked="">
+                  <input type="radio" id="day" value="Day" name="payment_type" class="custom-control-input" checked="">
                   <label class="custom-control-label" for="day">Day</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="week" value="Week" name="paymentType" class="custom-control-input">
+                  <input type="radio" id="week" value="Week" name="payment_type" class="custom-control-input">
                   <label class="custom-control-label" for="week">Week</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="month" value="Month" name="paymentType" class="custom-control-input">
+                  <input type="radio" id="month" value="Month" name="payment_type" class="custom-control-input">
                   <label class="custom-control-label" for="month">Month</label>
                 </div>
               </div>
